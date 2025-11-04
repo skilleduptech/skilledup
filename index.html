@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skilledUp - Transform Your Career</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo" onclick="scrollToTop()">
+                <span class="skilled">skilled</span><span class="up">Up</span>
+            </div>
+        </div>
+    </nav>
+     
+     <h1 id="ht">Schedule Your Free Consultation</h1>
+    <!-- =======================
+     Section: Data Science / Gen AI
+    ======================== -->
+    <section class="genai-section" id="Data">
+        
+    <div class="genai-container">
+        <!-- Left Card -->
+        <div class="genai-left-card">
+            <h1>Data Science/Analytics with Gen AI</h1>
+            <h2>Online/Offline Batch</h2>
+            <div class="features">
+                <div class="feature">Job Guarantee + PPO Support</div>
+                <div class="feature">Interview Preparation from Day 1</div>
+                <div class="feature">Personalized Training & Mentorship</div>
+                <div class="feature">Certification from skilledUp</div>
+            </div>
+            <button class="new-batch-btn">Batch Start 16-Nov-2025</button>
+            
+        </div>
+
+        <!-- Right Card -->
+       <div class="genai-right-card">
+            <form id="dataForm">
+                <!-- Name and Email above mobile -->
+                <input type="text" name="name" placeholder="Enter your complete name as per official records" required>
+                <input type="email" name="email" placeholder="Please provide a valid email ID" required>
+                
+                <!-- Mobile row with +91 and Get OTP beside -->
+                <div class="mobile-group">
+               <select name="countryCode" id="countryCode" class="country-code-select" disabled>
+               <option value="+91">+91</option>
+              </select>
+              <input type="text" name="mobile" id="mobile" placeholder="Enter 10-digit number" maxlength="10" required>
+              <button type="button" id="getOtpBtn" class="get-otp-btn">Get OTP</button>
+             </div>
+
+                
+                <!-- OTP input appears BELOW mobile after send OTP -->
+                <div class="otp-group" style="display: none; margin-bottom: 15px;">
+                    <input type="text" name="otp" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" required>
+                    <button type="button" id="verifyOtpBtn" class="verify-otp-btn">Verify OTP</button>
+                </div>
+                
+                <input type="hidden" name="action" id="actionInput" value="send_otp">
+                
+                <select name="course" required>
+                    <option value="">Select Course</option>
+                    <option>Career Boost: Data Analytics & Gen AI</option>
+                    <option>Career Accelerator: Data Analytics & Gen AI</option>
+                    <option>Career Accelerator: Data Science & Gen AI</option>
+                    <option>CareerX: Data Science & Gen AI</option>
+                </select>
+                <input type="text" name="city" placeholder="Enter your current location" required>
+                <select name="background" required>
+                    <option value="">Select Your Background</option>
+                    <option>College Student</option>
+                    <option>Recent Graduate (Not Currently Working)</option>
+                    <option>Graduate (Career Gap of 2–5 Years)</option>
+                    <option>Working Professional (0–2 Years of Experience)</option>
+                    <option>Working Professional (2–5 Years of Experience)</option>
+                    <option>Working Professional (5+ Years of Experience)</option>
+                </select>
+                <select name="mode" required>
+                    <option value="">Preferred Learning Mode</option>
+                    <option>Online</option>
+                    <option>Offline</option>
+                    <option>Hybrid</option>
+                </select>
+                
+                <!-- Submit button – unlocked after OTP verify, below form -->
+                <button type="submit" id="submitBtn" class="submit-btn" disabled style="width: 100%; margin-top: 15px;">Submit</button>
+            </form>
+            <p id="status"></p>
+        </div>
+    </div>
+</section>
+    <!-- Section: Courses -->
+    <section class="section courses-section" aria-label="Courses">
+        <div class="container">
+            <h2 class="section-title">Courses Designed for You</h2>
+
+            <div class="courses-grid">
+                <!-- Card 1 -->
+                <article class="course-card">
+                    <h3 class="course-title">Career Boost: Data Analytics &amp; Gen AI</h3>
+                    <div class="course-price">
+                        <div class="price-container">
+                            <span class="original-price">₹9,999</span>
+                            <span class="discounted-price">₹6,999</span>
+                            <span class="discount-badge">30% Off</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>4 months duration</li>
+                        <li>100% Job assistance</li>
+                    </ul>
+                    <button class="enroll-btn" type="button" onclick="goToForm()">Reserve Your Slot</button>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="course-card">
+                    <h3 class="course-title">Career Accelerator: Data Analytics &amp; Gen AI</h3>
+                    <div class="course-price">
+                        <div class="price-container">
+                            <span class="original-price">₹24,999</span>
+                            <span class="discounted-price">₹17,499</span>
+                            <span class="discount-badge">30% Off</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>6 months duration</li>
+                        <li>100% Job assistance</li>
+                    </ul>
+                    <button class="enroll-btn" type="button" onclick="goToForm()">Reserve Your Slot</button>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="course-card">
+                    <h3 class="course-title">Career Accelerator: Data Science &amp; Gen AI</h3>
+                    <div class="course-price">
+                        <div class="price-container">
+                            <span class="original-price">₹49,999</span>
+                            <span class="discounted-price">₹34,999</span>
+                            <span class="discount-badge">30% Off</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>9 months duration</li>
+                        <li>100% Job guarantee</li>
+                    </ul>
+                    <button class="enroll-btn" type="button" onclick="goToForm()">Reserve Your Slot</button>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="course-card">
+                    <h3 class="course-title">CareerX: Data Science &amp; Gen AI</h3>
+                    <div class="course-price">
+                        <div class="price-container">
+                            <span class="original-price">₹99,999</span>
+                            <span class="discounted-price">₹49,999</span>
+                            <span class="discount-badge">50% Off</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>9 months duration</li>
+                        <li>Job Guarantee + PPO</li>
+                    </ul>
+                    <button class="enroll-btn" type="button" onclick="goToForm()">Reserve Your Slot</button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Tools & Technologies -->
+    <section class="section tools-section">
+        <div class="container">
+            <h2 class="section-title">Tools & Technologies</h2>
+
+            <!-- Outer Big Card -->
+            <div class="outer-big-card">
+                <!-- Big Cards Row -->
+                <div class="big-card-row">
+                    <!-- Big Card 1 -->
+                    <div class="big-card">
+                        <img src="Image/ChatGPT Image Oct 29, 2025, 11_28_45 PM.png" alt="Development Tools" class="big-img">
+                    </div>
+
+                    <!-- Big Card 2 -->
+                    <div class="big-card">
+                        <img src="Image/ChatGPT Image Oct 31, 2025, 03_50_00 PM.png" alt="Visualization Tools" class="big-img">
+                    </div>
+                </div>
+
+                <!-- Small Cards Row -->
+                <div class="small-card-row">
+                    <div class="small-card">
+                        <img src="Image/sql_11.png" alt="SQL">
+                        <img src="Image/ga4bigquery_1.png" alt="BigQuery">
+                    </div>
+                    <div class="small-card">
+                        <img src="Image\free-chatgpt-3d-icon-png-download-9940790.webp" alt="GPT">
+                        <img src="Image\deepseek-app-icon.png" alt="deepseek-app-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Link Button -->
+        <div class="bottom-link">
+            <a href="#Data" class="link-btn">Join the Next Data Science Cohort</a>
+        </div>
+    </section>
+
+    <!-- Section: Transform Your Career -->
+    <section class="section benefits-section">
+        <div class="container">
+            <h2 class="section-title">Transform Your Career with Confidence</h2>
+
+            <ul class="benefits-list">
+                <li><span class="benefit-icon">📅</span> Weekend Live Sessions</li>
+                <li><span class="benefit-icon">💼</span> Industry Projects</li>
+                <li><span class="benefit-icon">❓</span> Live Doubt-Clearing</li>
+                <li><span class="benefit-icon">🌟</span> Personality Development</li>
+                <li><span class="benefit-icon">🎓</span> Internship up to 1 Year</li>
+                <li><span class="benefit-icon">🤝</span> Learner Support</li>
+                <li><span class="benefit-icon">👨‍🏫</span> Career Mentorship</li>
+                <li><span class="benefit-icon">🎤</span> Mock Interviews</li>
+                <li><span class="benefit-icon">📊</span> Personalized Programs</li>
+                <li><span class="benefit-icon">💻</span> Lifetime Dashboard</li>
+                <li><span class="benefit-icon">📋</span> Interview Prep</li>
+                <li><span class="benefit-icon">✅</span> Job Guarantee + PPO</li>
+            </ul>
+        </div>
+
+        <!-- Bottom Link Button -->
+        <div class="bottom-link">
+            <a href="#Data" class="link-btn">Start Your Data Science Journey Today!</a>
+        </div>
+    </section>
+
+    <!-- Section 4: What You Will Gain -->
+    <section class="section gain-section">
+        <div class="container">
+            <h2 class="section-title">What You Will Gain</h2>
+
+            <!-- Big Card Wrapper -->
+            <div class="big-gain-card">
+                <div class="gain-grid">
+                    <div class="gain-item">
+                        <div class="gain-circle">🛠️</div>
+                        <h4>Hands-on Tools</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">📚</div>
+                        <h4>Job-ready Curriculum</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">📜</div>
+                        <h4>Mentor Letters</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">🎥</div>
+                        <h4>Live + Recorded Sessions</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">📊</div>
+                        <h4>Case Studies</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">🤖</div>
+                        <h4>AI Tools Integration</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">🏢</div>
+                        <h4>Offline + Online Guidance</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">💳</div>
+                        <h4>No-cost EMI</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">⏰</div>
+                        <h4>Early Interview Prep</h4>
+                    </div>
+                    <div class="gain-item">
+                        <div class="gain-circle">🎯</div>
+                        <h4>Job Guarantee</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Link Button -->
+        <div class="bottom-link">
+            <a href="#Data" class="link-btn">Talk to an Expert & Shape Your Future</a>
+        </div>
+    </section>
+
+    <!-- Section 6: Career Assistance -->
+    <section class="section career-assistance-section">
+        <div class="container">
+            <h2 class="section-title">Connect with Our Experts</h2>
+
+            <div class="counselors-grid">
+                <!-- Counselor 1 -->
+                <div class="counselor-card">
+                    <div class="counselor-image">
+                        <img src="Image/WhatsApp Image 2025-10-31 at 17.50.20.jpeg" alt="Deepa Vishnani" />
+                    </div>
+                    <h4>Deepa Vishnani</h4>
+                    <p>Guided 300+ Students</p>
+                    <button class="connect-btn" onclick="window.open('tel:+917011863351')">Connect Now</button>
+                </div>
+
+                <!-- Counselor 2 -->
+                <div class="counselor-card">
+                    <div class="counselor-image">
+                        <img src="Image/WhatsApp Image 2025-10-31 at 17.39.25.jpeg" alt="Abhishek Tripathi" />
+                    </div>
+                    <h4>Abhishek Tripathi</h4>
+                    <p>Guided 250+ Students</p>
+                    <button class="connect-btn" onclick="window.open('tel:+917065486744')">Connect Now</button>
+                </div>
+                <!-- Counselor 3 -->
+                <div class="counselor-card">
+                    <div class="counselor-image">
+                        <img src="Image/WhatsApp Image 2025-10-31 at 17.39.24.jpeg" alt="Ankita" />
+                    </div>
+                    <h4>Ankita</h4>
+                    <p>Guided 200+ Students</p>
+                    <button class="connect-btn" onclick="window.open('tel:+918882681880')">Connect Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Expert Mentors -->
+    <section class="section mentors-section">
+        <div class="container">
+            <h2 class="section-title">Guided by Expert Mentors</h2>
+
+            <div class="mentors-grid">
+                <!-- Mentor 1 -->
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <img src="Image/image.png" alt="Vijay Narayan Singh">
+                    </div>
+                    <h4>Vijay Narayan Singh</h4>
+                    <p>With 13+ years of comprehensive and in-depth experience as a Data Scientist, 
+                        Data Analyst, and Business Analyst demonstrating a distinctive combination of 
+                        technical breadth, business acumen, critical analysis, and decision-making. 
+                        Worked on multiple products and categories. Having experience of 8+ years in
+                        educating people and helping them to make a career transition.</p>
+                    
+                    <!-- LinkedIn image button -->
+                    <img 
+                        src="Image\free-linkedin-logo-3d-icon-png-download-12257269.webp" 
+                        alt="LinkedIn" 
+                        class="linkedin-img" 
+                        onclick="openLinkedIn('https://www.linkedin.com/in/ivijaynsingh/')" 
+                    />
+                </div>
+
+                <!-- Mentor 2 -->
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <img src="Image\WhatsApp_Image_2025-10-30_at_17.05.25__1_-removebg-preview.png" alt="Aman Chauhan">
+                    </div>
+                    <h4>Aman Chauhan</h4>
+                    <p>Lead Data Scientist Expert with 3+ years of teaching experience in Data Science,
+                        Data Analytics, and Business Analytics. Skilled in MySQL, Data Visualization, 
+                        Big Data, Python, and Statistics, with strong expertise in Machine Learning (ML),
+                        NLP, Deep Learning (DL), and Artificial Intelligence (AI). Passionate about mentoring 
+                        and building industry-ready professionals.</p>
+
+                    <!-- LinkedIn image button -->
+                    <img 
+                        src="Image\free-linkedin-logo-3d-icon-png-download-12257269.webp" 
+                        alt="LinkedIn" 
+                        class="linkedin-img" 
+                        onclick="openLinkedIn('https://www.linkedin.com/in/theamanchauhan/')" 
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Learners Say</h2>
+
+            <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Cards -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="Image\WhatsApp Image 2025-10-30 at 09.10.10.jpeg" alt="Utkarsh">
+                        </div>
+                        <h5>Utkarsh</h5>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>Successfully completed DSAI training at SkilledUp — demonstrating strong analytical thinking and a passion for innovation.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="Image\WhatsApp Image 2025-10-30 at 10.45.06.jpeg" alt="Mohit">
+                        </div>
+                        <h5>Mohit</h5>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>A SkilledUp-trained DSAI professional, equipped with real-world data science and AI project experience.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="Image\WhatsApp Image 2025-10-30 at 10.38.04.jpeg" alt="Viswash">
+                        </div>
+                        <h5>Viswash</h5>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>Completed the DSAI program at SkilledUp with excellence — ready to contribute to impactful AI-driven solutions.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="Image\WhatsApp Image 2025-10-30 at 10.13.14.jpeg" alt="Sagar">
+                        </div>
+                        <h5>Sagar</h5>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>A dedicated DSAI graduate from SkilledUp, skilled in applying data-driven intelligence to solve real-world challenges.</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="Image\WhatsApp Image 2025-10-31 at 12.27.46.jpeg" alt="Shikha">
+                        </div>
+                        <h5>Shikha</h5>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>Certified DSAI professional from SkilledUp — combining technical expertise with a vision for innovation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button linking to separate Google Form page -->
+            <div class="controls">
+                <a href="#Data" class="link-btn">📝 Connect with an Expert & Plan Your Career Path</a>
+            </div>
+        </div>
+    </section>
+
+<!-- =======================
+     Industry Certification Section
+======================== -->
+<section class="industry-certification">
+    <div class="container">
+        <!-- Top Center Section -->
+        <h2 class="section-title">🎓 Industry-Recognized Certification</h2>
+        <div class="top-description">
+            <h3>Earn a globally respected credential that validates your expertise and accelerates your career in Data Science, Analytics, and Generative AI</h3>
+        </div>
+
+        <!-- Big Card Section -->
+        <div class="big-card">
+
+            <!-- Left Side: Two stacked inner cards -->
+            <div class="left-side">
+
+                <!-- First inner card: About the certification -->
+                <div class="inner-card">
+  <h3>About the Certification</h3>
+  <p>
+    Earn a globally respected credential that validates your expertise and accelerates your career 
+    in <strong>Data Science, Analytics, and Generative AI</strong>. Upon successful completion of your 
+    program, you'll be awarded a prestigious certificate from <strong>skilledUp</strong> — trusted by top 
+    employers and recognized across the industry for its practical, job-ready value.
+  </p>
+</div>
+
+
+              <!-- Second inner card: Certificate Highlights -->
+<div class="inner-card">
+  <h3>Certificate Highlights</h3>
+  <div class="highlights-grid">
+    <div class="highlight-column">
+      <ul>
+       <li>Globally Recognized Credential</li>
+      <li>Verified Skill Validation</li>
+      <li>Competitive Career Edge</li>
+      <li>LinkedIn Profile Integration</li>
+      <li>Lifetime Validity</li>
+      </ul>
+    </div>
+    <div class="highlight-column">
+      <ul>
+      <li>Portfolio Enhancement</li>
+      <li>Backed by Leading Industry Experts</li>
+      <li>Mapped to Real-World Job Roles</li>
+      <li>Gateway to High-Growth Careers</li>
+      <li>Symbol of Professional Excellence</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+            <!-- Right Side: Certificate Image Card -->
+            <div class="right-side">
+                <div class="certificate-card">
+                    <img src="Image/WhatsApp Image 2025-10-30 at 18.06.15.jpeg" alt="Certificate Image">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Section 10: Portfolio Ready -->
+<section class="section portfolio-section">
+    <div class="container">
+        <h2 class="section-title">Portfolio-Ready</h2>
+        <div class="portfolio-steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Project Planning</h4>
+                <p>Define objectives and scope</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Data Collection</h4>
+                <p>Gather and clean datasets</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>EDA & Analysis</h4>
+                <p>Explore and analyze data</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Model Building</h4>
+                <p>Create ML/AI models</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <h4>Visualization</h4>
+                <p>Create compelling charts</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <h4>Dashboard Creation</h4>
+                <p>Build interactive dashboards</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">7</div>
+                <h4>Documentation</h4>
+                <p>Write clear project docs</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">8</div>
+                <h4>GitHub Repository</h4>
+                <p>Version control and sharing</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">9</div>
+                <h4>Presentation</h4>
+                <p>Create project presentations</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">10</div>
+                <h4>Portfolio Website</h4>
+                <p>Showcase all projects online</p>
+            </div>
+        </div>
+        <div class="portfolio-cta">
+            <a href="#Data" class="link-btn">Connect with an Expert & Plan Your Career Path</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Section 11: Final CTA + Contact -->
+    <section class="section final-cta-section">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="cta-title">
+                    Turn Your Passion into a Data Science or Analytics Career – Start Now!
+                </h2>
+                <p class="cta-subtitle">
+                    Join thousands of successful graduates who transformed their careers with SkilledUp.Tech
+                </p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <a href="mailto:support@skilledup.tech">support@skilledup.tech</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <a href="tel:+911204131330">+91 1204131330</a>
+                            <a href="tel:+919810421790">+91 9810421790</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Visit Website</h4>
+                            <a href="https://www.skilledup.tech" target="_blank" rel="noopener noreferrer">
+                                www.skilledup.tech
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="final-cta-buttons">
+                    <button class="cta-btn primary" onclick="goToForm()">Start Your Journey</button>
+                    <button class="cta-btn secondary" onclick="window.open('tel:+919810421790')">Talk to Counselor</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ Floating WhatsApp Icon with Auto Message -->
+    <a 
+        href="https://wa.me/919810421790?text=Hi%20skilledUp!%20%20—%20I'm%20interested%20in%20learning%20more%20about%20your%20Data%20Science%20%26%20Analytics%20programs." 
+        class="whatsapp-float" 
+        target="_blank" 
+        title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 448 512" width="26" height="26">
+            <path d="M380.9 97.1C339 55.1 283.3 32 224.6 32 102.2 32 .6 133.6.6 256c0 45.3 12 89.6 34.9 128.3L0 480l98.8-35.8C135.8 464 180 480 224.6 480h.1c122.4 0 223.9-101.6 223.9-224S347.4 97.1 380.9 97.1zM224.6 438.6c-39.2 0-77.5-10.6-111-30.6l-7.9-4.7-58.7 21.3 20.1-60.3-5.1-8c-21.1-33-32.2-71.1-32.2-110.2 0-112.1 91.2-203.3 203.4-203.3 54.4 0 105.5 21.2 143.9 59.7 38.4 38.4 59.5 89.5 59.5 143.8 0 112.2-91.2 203.3-203.9 203.3zm111.8-152.7c-6.1-3-36.1-17.8-41.7-19.9-5.6-2.1-9.7-3-13.8 3s-15.8 19.9-19.3 24c-3.5 4-7.1 4.5-13.1 1.5s-25.5-9.4-48.6-30c-18-16.1-30.2-36-33.7-42s-.4-9.1 2.6-12.1c2.7-2.7 6.1-7.1 9.1-10.6 3-3.5 4-6.1 6.1-10.1 2-4 1-7.6-.5-10.6-1.5-3-13.8-33.2-18.9-45.4-5-12.1-10.1-10.4-13.8-10.6-3.5-.2-7.6-.2-11.6-.2s-10.6 1.5-16.1 7.6c-5.5 6.1-21.1 20.6-21.1 50.1s21.6 58.2 24.6 62.2c3 4 42.4 64.8 102.9 90.8 14.4 6.2 25.6 9.9 34.3 12.6 14.4 4.6 27.5 3.9 37.9 2.4 11.6-1.8 36.1-14.7 41.2-28.9 5.1-14.3 5.1-26.4 3.5-28.9-1.7-2.5-6.1-4.1-12.3-7.1z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
