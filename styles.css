@@ -1621,9 +1621,9 @@ html {
 #ht {
   text-align: center;              /* Centers text horizontally */
   color: white;
-  font-size: 2rem;                 /* Adjust size */
-  margin-top: 80px;                /* Space from navbar */
-  margin-bottom: 30px;             /* Space below heading */
+  font-size: 1rem;                 /* Adjust size */
+  /* margin-top: 80px;                Space from navbar */
+  margin-bottom: 20px;            
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -1657,4 +1657,5 @@ html {
     flex-direction: column;
   }
 }
+
 
