@@ -62,6 +62,7 @@ html, body {
 /* Section Styling */
 .section {
     padding: 6rem 2rem 4rem;
+    margin-bottom: 0px;
 }
 
 .container {
@@ -86,9 +87,10 @@ html, body {
 .genai-section {
   background: linear-gradient(135deg, #000000, #050c16);
   color: #fff;
-  padding: 80px 20px;
+  padding: 80px 20px 35px;
   display: flex;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .genai-container {
@@ -205,13 +207,15 @@ html, body {
 /* Courses Section */
 .courses-section {
   background: linear-gradient(135deg, #1a160d, #1d3131, #120b19);
-  padding: 40px 0;
+  /* padding: 50px 0; */
+  margin-top: 0 !important;
+  padding-top: 0px
 }
 
 .courses-section .section-title {
   color: #ffffff;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .courses-grid {
@@ -308,8 +312,9 @@ html, body {
    TOOLS & TECHNOLOGIES SECTION
 =================================*/
 .tools-section {
-  padding: 30px 15px;
+  padding: 15px 15px;
   background: #000;
+  margin-bottom: 0;
 }
 
 .tools-section .section-title {
@@ -391,6 +396,7 @@ html, body {
 .bottom-link {
   text-align: center;
   margin-top: 25px;
+  margin-bottom: 0;
 }
 
 .link-btn {
@@ -414,14 +420,16 @@ html, body {
 
 /* --- Section Styling  Transform Your Career --- */
 .benefits-section {
-  padding: 25px 0 25px;
+  padding: 10px 0 25px;
   background: #0b0c10;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 0;
 }
 
 .benefits-section .section-title {
   color: #ffffff;
+  padding: 10px 0 25px;
 }
 
 .benefits-list {
@@ -477,14 +485,16 @@ html, body {
 
 /* Gain Section Styling */
 .gain-section {
-    padding: 20px 0 25px;
+    padding: 10px 0 25px;
     background: #0b0c10;
     color: #fff;
     font-family: "Poppins", sans-serif;
+    margin-bottom: 0px;
 }
 
 .gain-section .section-title {
     color: #fff;
+    padding: 10px 0 25px;
 }
 
 /* Big Card Wrapper */
@@ -543,13 +553,17 @@ html, body {
 
 /* Career Assistance Section */
 .career-assistance-section {
-  padding: 60px 20px;
+  padding: 10px 20px;
   background: #0a0e14;
   text-align: center;
+  margin-bottom: 0px;
 }
 
 .career-assistance-section .section-title {
   color: hsl(0, 0%, 100%);
+
+  padding: 10px 0 25px;
+  margin-bottom: 0px;
 }
 
 .counselors-grid {
@@ -557,6 +571,8 @@ html, body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
   justify-content: center;
+  
+  
 }
 
 .counselor-card {
@@ -1676,9 +1692,9 @@ html {
 ================================================= */
 .industry-certification .container {
     max-width: 1200px;
-    /* margin: 0 auto; */
-    padding: 0 50px;
-    margin-bottom: 20px;
+    padding: 0 20px; /* Reduced padding for better mobile fit; was 50px */
+    margin: 0 auto 20px; /* Added auto margins for centering */
+    box-sizing: border-box;
 }
 
 /* Title */
@@ -1773,14 +1789,6 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Numbered with Blue Accent
-.industry-certification .pill:nth-child(1)::before { content: "1. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
-.industry-certification .pill:nth-child(2)::before { content: "2. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
-.industry-certification .pill:nth-child(3)::before { content: "3. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
-.industry-certification .pill:nth-child(4)::before { content: "4. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
-.industry-certification .pill:nth-child(5)::before { content: "5. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
-.industry-certification .pill:nth-child(6)::before { content: "6. "; color: #4da6ff; font-weight: 700; margin-right: 6px; } */
-
 .industry-certification .pill:hover {
     background: #3d3d4d;
     color: #ffffff;
@@ -1835,6 +1843,7 @@ html {
     line-height: 1.3;
     font-size: 1rem;
     z-index: 10;
+    white-space: nowrap; /* Prevent text wrapping issues on resize */
 }
 
 .industry-certification .cert-badge::before {
@@ -1860,28 +1869,110 @@ html {
     font-weight: 500;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE – Enhanced for better stacking and spacing */
 @media (max-width: 992px) {
+    .industry-certification .container {
+        padding: 0 15px; /* Further reduce padding on tablet */
+    }
+    
     .industry-certification .big-card {
         grid-template-columns: 1fr;
         gap: 28px;
+        align-items: center; /* Center align when stacked */
     }
+    
+    .industry-certification .left-side {
+        order: -1; /* Ensure left content (text) appears first on stack */
+        gap: 20px; /* Slightly reduce gap */
+    }
+    
     .industry-certification .highlights-pills {
         grid-template-columns: 1fr;
+        gap: 12px; /* Tighter gap for stacked pills */
     }
+    
     .industry-certification .certificate-wrapper {
-        max-width: 500px;
+        max-width: 100%; /* Allow full width on tablet/mobile */
         margin: 0 auto;
+    }
+    
+    .industry-certification .cert-badge {
+        right: -8px; /* Adjust badge position for smaller screens */
+        transform: rotate(5deg); /* Reduce rotation to avoid clipping */
     }
 }
 
 @media (max-width: 576px) {
-    .industry-certification .section-title { font-size: 1.8rem; }
-    .industry-certification .top-description h3 { font-size: 1.2rem; margin-bottom: 30px; }
-    .industry-certification .inner-card { padding: 20px; }
-    .industry-certification [class*="inner-card"] h3 { font-size: 1.3rem; }
-    .industry-certification .pill { font-size: 0.92rem; padding: 14px 18px; }
+    .industry-certification .container {
+        padding: 0 10px;
+        margin-bottom: 10px; /* Reduce bottom margin */
+    }
+    
+    .industry-certification .section-title { 
+        font-size: 1.8rem; 
+    }
+    
+    .industry-certification .top-description h3 { 
+        font-size: 1.2rem; 
+        margin-bottom: 30px; 
+        padding: 0 10px; /* Add horizontal padding to prevent edge clipping */
+    }
+    
+    .industry-certification .inner-card { 
+        padding: 20px; 
+    }
+    
+    .industry-certification .inner-card h3 { 
+        font-size: 1.3rem; 
+        margin-bottom: 16px; /* Slightly reduce margin */
+    }
+    
+    .industry-certification .about-card p {
+        font-size: 0.95rem; /* Slightly smaller text for mobile readability */
+        line-height: 1.6;
+    }
+    
+    .industry-certification .pill { 
+        font-size: 0.92rem; 
+        padding: 14px 18px; 
+        justify-content: center; /* Center pill text on mobile */
+    }
+    
+    .industry-certification .certificate-wrapper {
+        max-width: 100%;
+        border-radius: 16px; /* Slightly smaller radius for mobile */
+    }
+    
+    .industry-certification .certificate-img {
+        border-radius: 16px;
+    }
+    
     .industry-certification .cert-badge {
-        top: 10px; right: -8px; padding: 8px 18px; font-size: 0.88rem;
+        top: 12px; 
+        right: -6px; 
+        padding: 8px 16px; 
+        font-size: 0.85rem;
+        transform: rotate(3deg); /* Minimal rotation on small screens to prevent overlap */
+        line-height: 1.2;
+    }
+    
+    .industry-certification .badge-title {
+        font-size: 1.1em;
+    }
+    
+    .industry-certification .badge-subtitle {
+        font-size: 0.75em;
+    }
+    
+    /* Ensure badge doesn't clip on very small screens */
+    @media (max-width: 360px) {
+        .industry-certification .cert-badge {
+            position: static; /* Fallback: make static if absolute causes issues */
+            display: block;
+            margin: 10px auto 0;
+            transform: none;
+            text-align: center;
+            width: fit-content;
+        }
     }
 }
