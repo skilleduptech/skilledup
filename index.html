@@ -16,6 +16,8 @@
             </div>
         </div>
     </nav>
+     
+     <!-- <h1 id="ht">Schedule Your Free Consultation</h1> -->
     <!-- =======================
      Section: Data Science / Gen AI
     ======================== -->
@@ -37,30 +39,61 @@
         </div>
 
         <!-- Right Card -->
-       <div class="genai-right-card">
-            <form id="dataForm">
-                <h4 id="ht">Schedule Your Free Consultation</h4>
-                <!-- Name and Email above mobile -->
-                <input type="text" name="name" placeholder="Enter your complete name as per official records" required>
-                <input type="email" name="email" placeholder="Please provide a valid email ID" required>
-                
-                <!-- Mobile row with +91 and Get OTP beside -->
-                <div class="mobile-group">
-               <!-- <select name="countryCode" id="countryCode" class="country-code-select" disabled>
-               <option value="+91">+91</option>
-              </select> -->
-              <input type="text" name="mobile" id="mobile" placeholder="Mobile Number" maxlength="10" required>
-              <button type="button" id="getOtpBtn" class="get-otp-btn">Get OTP</button>
-             </div>
+       <!-- Right Card -->
+<div class="genai-right-card">
+    <h4 id="ht">Schedule Your Free Consultation</h4>
+    <form id="dataForm">
+        <!-- Name and Email above mobile -->
+        <input type="text" name="name" id="name" placeholder="Enter your complete name as per official records" required>
+        <input type="email" name="email" id="email" placeholder="Please provide a valid email ID" required>
 
-                
-                <!-- OTP input appears BELOW mobile after send OTP -->
-                <div class="otp-group" style="display: none; margin-bottom: 15px;">
-                    <input type="text" name="otp" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" required>
-                    <button type="button" id="verifyOtpBtn" class="verify-otp-btn">Verify OTP</button>
-                </div>
-                
-                <input type="hidden" name="action" id="actionInput" value="send_otp">
+        <!-- Mobile + OTP Group -->
+        <div class="mobile-group" style="position: relative; display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+            <select name="countryCode" id="countryCode" class="country-code-select" 
+                style="width: 80px; height: 45px; border-radius: 6px; border: 1px solid #ccc; background: #333; color: white; padding: 0 5px; font-size: 14px;">
+                <option value="+91">+91</option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+            </select>
+
+            <div style="position: relative; flex: 1;">
+                <input 
+                    type="text" 
+                    name="mobile" 
+                    id="mobile" 
+                    placeholder="Enter 10-digit number" 
+                    maxlength="10" 
+                    required
+                    style="width: 100%; height: 45px; border-radius: 6px; border: 1px solid #ccc; padding: 0 10px; background: #333; color: white; font-size: 15px;"
+                >
+                <span 
+                    id="getOtpText" 
+                    style="position:absolute; right:15px; top:50%; transform:translateY(-50%); color:#007bff; cursor:pointer; font-weight:500; display:none;"
+                >Get OTP</span>
+                <span 
+                    id="otpSentText" 
+                    style="position:absolute; right:15px; top:50%; transform:translateY(-50%); color:#28a745; font-weight:500; display:none;"
+                >OTP sent successfully</span>
+            </div>
+        </div>
+
+        <!-- OTP Input Field (Hidden by default) -->
+        <div class="otp-group" id="otpGroup" style="display:none; margin-bottom:15px; position:relative;">
+            <input 
+                type="text" 
+                name="otp" 
+                id="otpInput" 
+                placeholder="Enter 6-digit OTP" 
+                maxlength="6"
+                required
+                style="width:100%; height:45px; border-radius:6px; border:1px solid #ccc; background:#333; color:white; padding-left:10px; font-size:15px;"
+            >
+            <span id="otpStatus" style="position:absolute; right:15px; top:50%; transform:translateY(-50%); font-size:18px; color:#28a745; display:none;">OTP Verified</span>
+        </div>
+
+        <!-- Error Message -->
+        <div id="formError" style="color:#ff6b6b; font-size:14px; margin-top:5px; display:none;"></div>
+
                 
                 <select name="course" required>
                     <option value="">Select Course</option>
@@ -85,11 +118,18 @@
                     <option>Offline</option>
                     <option>Hybrid</option>
                 </select>
-                
+               <div class="agree-container">
+  <label class="agree-label">
+    <input type="checkbox" id="agreeCheck" required>
+    <span>I agree to share my data and receive updates regarding my consultation.</span>
+  </label>
+</div>          
                 <!-- Submit button – unlocked after OTP verify, below form -->
                 <button type="submit" id="submitBtn" class="submit-btn" disabled style="width: 100%; margin-top: 15px;">Submit</button>
+
             </form>
             <p id="status"></p>
+            <div id="formError" style="color:#ff6b6b; font-size:14px; margin-top:5px; display:none;"></div>
         </div>
     </div>
 </section>
@@ -451,68 +491,57 @@
 ======================== -->
 <section class="industry-certification">
     <div class="container">
-        <!-- Top Center Section -->
-        <h2 class="section-title">🎓 Industry-Recognized Certification</h2>
+
+        <!-- Title -->
+        <h2 class="section-title">Industry-Recognized Certification</h2>
         <div class="top-description">
             <h3>Earn a globally respected credential that validates your expertise and accelerates your career in Data Science, Analytics, and Generative AI</h3>
         </div>
 
-        <!-- Big Card Section -->
+        <!-- Main Layout: Left + Right -->
         <div class="big-card">
 
-            <!-- Left Side: Two stacked inner cards -->
+            <!-- LEFT: About + Highlights -->
             <div class="left-side">
 
-                <!-- First inner card: About the certification -->
-                <div class="inner-card">
-  <h3>About the Certification</h3>
-  <p>
-    Earn a globally respected credential that validates your expertise and accelerates your career 
-    in <strong>Data Science, Analytics, and Generative AI</strong>. Upon successful completion of your 
-    program, you'll be awarded a prestigious certificate from <strong>skilledUp</strong> — trusted by top 
-    employers and recognized across the industry for its practical, job-ready value.
-  </p>
-</div>
+                <!-- About Card -->
+                <div class="inner-card about-card">
+                    <h3>About the Certification</h3>
+                    <p>
+                        Earn a globally respected credential that validates your expertise and accelerates your career in Data Science, Analytics, and Generative AI.
+                        Upon successful completion of your program, you'll be awarded a prestigious certificate from skilledUp — trusted by top employers and recognized across the industry for its practical, job-ready value.
+                    </p>
+                </div>
 
+                <!-- Highlights Card -->
+                <div class="inner-card highlights-card">
+                    <h3>Certificate Highlights</h3>
+                    <div class="highlights-pills">
+                        <div class="pill">Globally Recognized Certification</div>
+                        <div class="pill">Verified & Industry-Backed Skills</div>
+                        <div class="pill">Boosts Career Growth & Credibility</div>
+                        <div class="pill">Digital, Shareable & Trusted Badge</div>
+                        <div class="pill">Aligned with Real Job Market Needs</div>
+                        <div class="pill">Lifetime Validity & Professional Edge</div>
+                    </div>
+                </div>
 
-              <!-- Second inner card: Certificate Highlights -->
-<div class="inner-card">
-  <h3>Certificate Highlights</h3>
-  <div class="highlights-grid">
-    <div class="highlight-column">
-      <ul>
-       <li>Globally Recognized Credential</li>
-      <li>Verified Skill Validation</li>
-      <li>Competitive Career Edge</li>
-      <li>LinkedIn Profile Integration</li>
-      <li>Lifetime Validity</li>
-      </ul>
-    </div>
-    <div class="highlight-column">
-      <ul>
-      <li>Portfolio Enhancement</li>
-      <li>Backed by Leading Industry Experts</li>
-      <li>Mapped to Real-World Job Roles</li>
-      <li>Gateway to High-Growth Careers</li>
-      <li>Symbol of Professional Excellence</li>
-      </ul>
-    </div>
-  </div>
-</div>
+            </div>
 
-
-            <!-- Right Side: Certificate Image Card -->
+            <!-- RIGHT: Certificate Image -->
             <div class="right-side">
-                <div class="certificate-card">
-                    <img src="Image/WhatsApp Image 2025-10-30 at 18.06.15.jpeg" alt="Certificate Image">
+                <div class="certificate-wrapper">
+                    <img src="Image/WhatsApp Image 2025-10-30 at 18.06.15.jpeg" alt="Certificate" class="certificate-img">
+                    <div class="cert-badge">
+                        <span class="badge-title">skilledUp</span><br>
+                        <span class="badge-subtitle">Data Science & Gen-AI</span>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
-
-
 <!-- Section 10: Portfolio Ready -->
 <section class="section portfolio-section">
     <div class="container">
@@ -637,8 +666,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
