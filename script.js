@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         otpGroup.style.display = 'block';
         getOtpText.style.display = "none";
         otpSentText.style.display = "block";
-        showStatus("OTP sent successfully! Please enter it below.", "#070707ea");
+        // showStatus("OTP sent successfully! Please enter it below.", "#070707ea");
 
         // Optional cooldown (60s, no visible timer)
         otpCooldown = true;
@@ -391,3 +391,4 @@ document.addEventListener('DOMContentLoaded', function() {
 function goToForm() {
     document.getElementById('Data').scrollIntoView({ behavior: 'smooth' });
 }
+
