@@ -5,41 +5,72 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyGDvSI68_3hv6PIAbqj5ebsl5wO53mq64hT08W_0WU89Np2Y0wxTHEnBbdUwNkL244tw/exec';  // Your GAS URL
 
 const form = document.getElementById('dataForm');
-const status = document.getElementById('status');
-const getOtpBtn = document.getElementById('getOtpBtn');
-const verifyOtpBtn = document.getElementById('verifyOtpBtn');
-const submitBtn = document.getElementById('submitBtn');
-const otpGroup = document.querySelector('.otp-group');
+const status = document.getElementById('formError');  // Using formError for messages
+const submitBtn = document.getElementById('submitBtn');  // <-- ADD THIS: Declare submitBtn
+const getOtpText = document.getElementById('getOtpText');
+const otpGroup = document.getElementById('otpGroup');
 const otpInput = document.getElementById('otpInput');
-const actionInput = document.getElementById('actionInput');
 const mobileInput = document.getElementById('mobile');
+const otpSentText = document.getElementById('otpSentText');
+const otpStatus = document.getElementById('otpStatus');
+const nameInput = document.getElementById('name');  // <-- FIXED: Use getElementById since id exists
+const emailInput = document.getElementById('email');  // <-- FIXED: Use getElementById since id exists
+const agreeCheck = document.getElementById('agreeCheck');  // <-- ADD IF NEEDED: For checkbox validation
 
 let otpSent = false;
 let otpVerified = false;
+let otpCooldown = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (!form) {
-    console.error('Form not found!');
+  if (!form || !submitBtn) {
+    console.error('Form or submit button not found!');
     return;
   }
 
-  // Phase 1: Get OTP (beside mobile)
-  getOtpBtn.addEventListener("click", async (e) => {
+  // Show "Get OTP" text dynamically inside mobile input box
+  mobileInput.addEventListener("input", () => {
+    const mobileValue = mobileInput.value.trim();
+
+    // Show "Get OTP" only when exactly 10 digits are entered
+    if (/^\d{10}$/.test(mobileValue)) {
+      getOtpText.style.display = "block";
+    } else {
+      getOtpText.style.display = "none";
+      otpGroup.style.display = "none";
+      otpInput.value = "";
+      otpStatus.style.display = "none";
+      otpInput.disabled = false;
+      otpInput.style.backgroundColor = "#333";
+      otpInput.style.borderColor = "#ccc";
+    }
+  });
+
+  // Phase 1: Get OTP (beside mobile) - Check name & email before sending
+  getOtpText.addEventListener("click", async (e) => {
     e.preventDefault();
-    if (!mobileInput.value || mobileInput.value.length < 10) {
-      status.style.color = "#ff4444";
-      status.textContent = "Please enter a valid 10-digit mobile number.";
+
+    // Check name and email are present and not empty
+    if (!nameInput.value.trim()) {
+      showError("Please enter your name.");
+      return;
+    }
+    if (!emailInput.value.trim() || !isValidEmail(emailInput.value.trim())) {
+      showError("Please enter a valid email.");
       return;
     }
 
-    status.style.color = "#00ff00";
-    status.textContent = "Sending OTP...";
+    if (!mobileInput.value || mobileInput.value.length !== 10) {
+      showError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (otpCooldown) return; // prevent multiple clicks
+
+    showStatus("Sending OTP...", "#00ff00");
 
     const otpFormData = new URLSearchParams();
     otpFormData.append('mobile', mobileInput.value);
     otpFormData.append('action', 'send_otp');
-
-    console.log('Sending OTP for:', { mobile: mobileInput.value });
 
     try {
       const res = await fetch(scriptURL, {
@@ -47,56 +78,38 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: otpFormData
       });
-
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
       const rawText = await res.text();
-      console.log('Raw OTP Response:', rawText);
-
-      let result;
-      try {
-        result = JSON.parse(rawText);
-      } catch (parseErr) {
-        throw new Error('Server returned invalid response');
-      }
-
-      console.log('Parsed OTP Response:', result);
+      const result = JSON.parse(rawText);
 
       if (result.status === 'success') {
         otpSent = true;
-        otpGroup.style.display = 'flex';  // Show OTP row BELOW mobile
-        getOtpBtn.style.display = 'none';
-        status.style.color = "#00ff00";
-        status.textContent = "OTP sent! Enter it below to verify.";
+        otpGroup.style.display = 'block';
+        getOtpText.style.display = "none";
+        otpSentText.style.display = "block";
+        showStatus("OTP sent successfully! Please enter it below.", "#070707ea");
+
+        // Optional cooldown (60s, no visible timer)
+        otpCooldown = true;
+        setTimeout(() => { otpCooldown = false; }, 60000);
       } else {
-        status.style.color = "#ff4444";
-        status.textContent = `Error: ${result.message}`;
+        showError(`Error: ${result.message}`);
       }
     } catch (err) {
-      console.error('OTP Send Error:', err);
-      status.style.color = "#ff4444";
-      status.textContent = `OTP Send Failed: ${err.message}`;
+      console.error(err);
+      showError(`OTP Send Failed: ${err.message}`);
     }
   });
 
-  // Phase 2: Verify OTP (unlocks Submit)
-  verifyOtpBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    if (!otpInput.value || otpInput.value.length !== 6) {
-      status.style.color = "#ff4444";
-      status.textContent = "Please enter a valid 6-digit OTP.";
-      return;
-    }
+  // Phase 2: Verify OTP (unlocks Submit) - Auto verify on 6 digits
+  otpInput.addEventListener("input", async () => {
+    if (otpInput.value.length !== 6) return;
 
-    status.style.color = "#00ff00";
-    status.textContent = "Verifying OTP...";
+    showStatus("Verifying OTP...", "#00ff00");
 
     const verifyFormData = new URLSearchParams();
     verifyFormData.append('mobile', mobileInput.value);
     verifyFormData.append('otp', otpInput.value);
     verifyFormData.append('action', 'verify');
-
-    console.log('Verifying OTP for:', { mobile: mobileInput.value, otp: otpInput.value });
 
     try {
       const res = await fetch(scriptURL, {
@@ -104,61 +117,58 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: verifyFormData
       });
-
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
       const rawText = await res.text();
-      console.log('Raw Verify Response:', rawText);
-
-      let result;
-      try {
-        result = JSON.parse(rawText);
-      } catch (parseErr) {
-        throw new Error('Server returned invalid response');
-      }
-
-      console.log('Parsed Verify Response:', result);
+      const result = JSON.parse(rawText);
 
       if (result.status === 'success') {
         otpVerified = true;
-        otpGroup.style.display = 'none';  // Hide OTP row after verify
-        submitBtn.disabled = false;  // Unlock Submit
-        submitBtn.classList.add('active');  // Add class for green color
-        status.style.color = "#00ff00";
-        status.textContent = "OTP verified! Now fill the form and submit.";
+        // Keep textbox visible but disable it
+        otpInput.disabled = true;
+        otpInput.readOnly = true;
+        otpInput.value = "OTP Verified";
+        otpInput.style.backgroundColor = "#000000f0";
+        otpInput.style.borderColor = "#28a745";
+        otpStatus.style.display = "block";
+        showStatus();
+        // <-- FIXED: Enable submit button here
+        submitBtn.disabled = false;
+        submitBtn.classList.add('active');
       } else {
-        status.style.color = "#ff4444";
-        status.textContent = `Error: ${result.message}`;
-        otpInput.value = '';
+        showError(`Error: ${result.message}`);
+        otpInput.value = "";
       }
     } catch (err) {
-      console.error('Verify Error:', err);
-      status.style.color = "#ff4444";
-      status.textContent = `Verification Failed: ${err.message}`;
-      otpInput.value = '';
+      console.error(err);
+      showError(`Verification Failed: ${err.message}`);
+      otpInput.value = "";
     }
   });
 
   // Phase 3: Submit (full data after verify)
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    
+    // Optional: Check checkbox if required
+    if (agreeCheck && !agreeCheck.checked) {
+      showError("Please agree to the terms.");
+      return;
+    }
+    
     if (!otpVerified) {
-      status.style.color = "#ff4444";
-      status.textContent = "Please verify OTP first.";
+      showError("Please verify OTP first.");
       return;
     }
 
-    status.style.color = "#00ff00";
-    status.textContent = "Submitting Data...";
+    showStatus("Submitting Data...", "#00ff00");
 
     const formData = new URLSearchParams();
-    formData.append('name', form.name.value);
-    formData.append('email', form.email.value);
+    formData.append('name', nameInput.value);  // Use nameInput for consistency
+    formData.append('email', emailInput.value);
     formData.append('mobile', mobileInput.value);
-    formData.append('course', form.course.value);
-    formData.append('city', form.city.value);
-    formData.append('background', form.background.value);
-    formData.append('mode', form.mode.value);
+    formData.append('course', form.course.value || '');  // Safe access
+    formData.append('city', form.city.value || '');
+    formData.append('background', form.background.value || '');
+    formData.append('mode', form.mode.value || '');
     formData.append('action', 'submit_data');
 
     console.log('Submitting full data');
@@ -185,13 +195,24 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log('Parsed Submit Response:', result);
 
       if (result.status === 'success') {
-        status.style.color = "#00ff00";
-        status.textContent = `${result.message} Redirecting...`;
+        submitBtn.innerHTML = `${result.message} Redirecting...`;
+        submitBtn.style.backgroundColor = "#28a745";  // Green background for success
+        submitBtn.style.color = "white";
+        submitBtn.disabled = true;
+        showStatus(`${result.message} Redirecting...`, "#00ff00");
         form.reset();
         otpSent = false;
         otpVerified = false;
-        getOtpBtn.style.display = 'block';
         otpGroup.style.display = 'none';
+        getOtpText.style.display = "none";
+        otpSentText.style.display = "none";
+        otpStatus.style.display = "none";
+        otpInput.disabled = false;
+        otpInput.readOnly = false;
+        otpInput.value = "";
+        otpInput.style.backgroundColor = "#333";
+        otpInput.style.borderColor = "#ccc";
+        // <-- FIXED: Disable submit button after success
         submitBtn.disabled = true;
         submitBtn.classList.remove('active');
         // Auto-redirect after 1.5s
@@ -199,15 +220,28 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = 'https://skilledup.tech/category-list.php?c=11&t=0';
         }, 1500);
       } else {
-        status.style.color = "#ff4444";
-        status.textContent = `Error: ${result.message}`;
+        showError(`Error: ${result.message}`);
       }
     } catch (err) {
       console.error('Submit Error:', err);
-      status.style.color = "#ff4444";
-      status.textContent = `Submission Failed: ${err.message}`;
+      showError(`Submission Failed: ${err.message}`);
     }
   });
+
+  // Helper functions for status/error display
+  function showStatus(message, color) {
+    status.style.display = "block";
+    status.style.color = color;
+    status.textContent = message;
+  }
+
+  function showError(message) {
+    showStatus(message, "#ff4444");
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 });
 // Scroll animations
 function observeElements() {
