@@ -2,7 +2,7 @@
 
 /// SkilledUp Form Integration with Google Sheets
 // const scriptURL = 'AKfycbydxue0DgTQgWbmNakAqkMW5QjT6WKTQtBFbmUsqq0Y_9HcbkjtoQAOWzjyAq2jHi4g';
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzQhkEK_CEfl8Lz0H9iR1AYWAjnRSFTyFaUGVOpbI8XkofknRvDIobpU4LFo9Rk2JK24g/exec';  // Your GAS URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyEX0_m7238Q5twz5kZUtP4MLMkZsLubiJXNDwHQQu0RBD7WYCKwzUQsK52XUsTvxJ7bA/exec';  // Your GAS URL
 
 const form = document.getElementById('dataForm');
 const status = document.getElementById('formError');  // Using formError for messages
@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     otpFormData.append("name", nameInput.value.trim());   // ✅ Add this line
     otpFormData.append("mobile", mobileInput.value.trim()); // ✅ Keep this
 
-
     try {
       const res = await fetch(scriptURL, {
         method: "POST",
@@ -92,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         otpGroup.style.display = 'block';
         getOtpText.style.display = "none";
         otpSentText.style.display = "block";
-        // showStatus("OTP sent successfully! Please enter it below.", "#070707ea");
+        showStatus("OTP sent successfully! Please enter it below.", "#070707ea");
 
         // Optional cooldown (60s, no visible timer)
         otpCooldown = true;
@@ -397,7 +396,3 @@ document.addEventListener('DOMContentLoaded', function() {
 function goToForm() {
     document.getElementById('Data').scrollIntoView({ behavior: 'smooth' });
 }
-
-
-
-
