@@ -1628,34 +1628,260 @@ html {
   letter-spacing: 1px;
 }
 
-.highlights-grid {
+
+.agree-container {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  margin-top: 15px;
+  align-items: flex-start;
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #f0f0f0; /* match your form’s text color */
 }
 
-.highlight-column {
+.agree-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.agree-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #ff3366; /* use your brand color */
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.agree-label span {
   flex: 1;
+  color: #ccc;
 }
 
-.highlight-column ul {
-  list-style-type: "⭐ ";
-  padding-left: 10px;
-  font-size: 10pt; /* smaller size in points as your teacher suggested */
-  color: #eaeaea;
-  line-height: 1.6;
+.agree-label span:hover {
+  color: #fff;
 }
 
-.highlight-column li {
-  margin-bottom: 8px;
+/* Container card */
+
+
+/* =================================================
+   ONLY AFFECTS .industry-certification SECTION
+================================================= */
+/* =================================================
+   ONLY AFFECTS .industry-certification
+================================================= */
+/* =================================================
+   ONLY AFFECTS .industry-certification — NO CONFLICTS
+================================================= */
+.industry-certification .container {
+    max-width: 1200px;
+    /* margin: 0 auto; */
+    padding: 0 50px;
+    margin-bottom: 20px;
 }
 
-/* Responsive for mobile view */
-@media (max-width: 768px) {
-  .highlights-grid {
+/* Title */
+.industry-certification .section-title {
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.industry-certification .top-description h3 {
+    text-align: center;
+    font-size: 1.38rem;
+    font-weight: 500;
+    margin: 0 0 40px;
+    color: #ffdd57;
+    line-height: 1.2;
+}
+
+/* 2-Column Grid */
+.industry-certification .big-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* LEFT SIDE */
+.industry-certification .left-side {
+    display: flex;
     flex-direction: column;
-  }
+    gap: 24px;
 }
 
+.industry-certification .inner-card {
+    padding: 28px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #1a1a24, #14141a);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
 
+.industry-certification .inner-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 60%);
+    pointer-events: none;
+}
+
+.industry-certification .inner-card h3 {
+    margin: 0 0 18px;
+    font-size: 1.4rem;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.industry-certification .about-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    color: #d0d0d0;
+}
+
+/* HIGHLIGHTS – Numbered Pills */
+.industry-certification .highlights-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.industry-certification .pill {
+    display: flex;
+    align-items: center;
+    background: #2c2c38;
+    color: #e8e8e8;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Numbered with Blue Accent
+.industry-certification .pill:nth-child(1)::before { content: "1. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
+.industry-certification .pill:nth-child(2)::before { content: "2. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
+.industry-certification .pill:nth-child(3)::before { content: "3. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
+.industry-certification .pill:nth-child(4)::before { content: "4. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
+.industry-certification .pill:nth-child(5)::before { content: "5. "; color: #4da6ff; font-weight: 700; margin-right: 6px; }
+.industry-certification .pill:nth-child(6)::before { content: "6. "; color: #4da6ff; font-weight: 700; margin-right: 6px; } */
+
+.industry-certification .pill:hover {
+    background: #3d3d4d;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(77, 166, 255, 0.4);
+}
+
+/* RIGHT SIDE – Certificate (Fixed Size) */
+.industry-certification .right-side {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.industry-certification .certificate-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s ease;
+    background: #000;
+}
+
+.industry-certification .certificate-wrapper:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.industry-certification .certificate-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 24px;
+}
+
+/* Golden Badge */
+.industry-certification .cert-badge {
+    position: absolute;
+    top: 18px;
+    right: -12px;
+    background: linear-gradient(135deg, #ffd700, #ffb800);
+    color: #1a1a1a;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transform: rotate(8deg);
+    text-align: center;
+    line-height: 1.3;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.industry-certification .cert-badge::before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 12px solid #cc9900;
+}
+
+.industry-certification .badge-title {
+    font-size: 1.2em;
+    letter-spacing: 0.6px;
+    display: block;
+}
+.industry-certification .badge-subtitle {
+    font-size: 0.8em;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .industry-certification .big-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .industry-certification .highlights-pills {
+        grid-template-columns: 1fr;
+    }
+    .industry-certification .certificate-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .industry-certification .section-title { font-size: 1.8rem; }
+    .industry-certification .top-description h3 { font-size: 1.2rem; margin-bottom: 30px; }
+    .industry-certification .inner-card { padding: 20px; }
+    .industry-certification [class*="inner-card"] h3 { font-size: 1.3rem; }
+    .industry-certification .pill { font-size: 0.92rem; padding: 14px 18px; }
+    .industry-certification .cert-badge {
+        top: 10px; right: -8px; padding: 8px 18px; font-size: 0.88rem;
+    }
+}
