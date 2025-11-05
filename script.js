@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (otpCooldown) return; // prevent multiple clicks
 
     showStatus("Sending OTP...", "#00ff00");
+    const hideTimeout = setTimeout(() => {
+    status.style.display = "none";  // Hide after 3 seconds if no response
+  }, 3000);
 
     const otpFormData = new URLSearchParams();
     otpFormData.append('mobile', mobileInput.value);
@@ -394,5 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function goToForm() {
     document.getElementById('Data').scrollIntoView({ behavior: 'smooth' });
 }
+
 
 
