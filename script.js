@@ -2,7 +2,7 @@
 
 /// SkilledUp Form Integration with Google Sheets
 // const scriptURL = 'AKfycbydxue0DgTQgWbmNakAqkMW5QjT6WKTQtBFbmUsqq0Y_9HcbkjtoQAOWzjyAq2jHi4g';
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyGDvSI68_3hv6PIAbqj5ebsl5wO53mq64hT08W_0WU89Np2Y0wxTHEnBbdUwNkL244tw/exec';  // Your GAS URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzQhkEK_CEfl8Lz0H9iR1AYWAjnRSFTyFaUGVOpbI8XkofknRvDIobpU4LFo9Rk2JK24g/exec';  // Your GAS URL
 
 const form = document.getElementById('dataForm');
 const status = document.getElementById('formError');  // Using formError for messages
@@ -71,6 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const otpFormData = new URLSearchParams();
     otpFormData.append('mobile', mobileInput.value);
     otpFormData.append('action', 'send_otp');
+    otpFormData.append("name", nameInput.value.trim());   // ✅ Add this line
+    otpFormData.append("mobile", mobileInput.value.trim()); // ✅ Keep this
+
 
     try {
       const res = await fetch(scriptURL, {
@@ -391,4 +394,5 @@ document.addEventListener('DOMContentLoaded', function() {
 function goToForm() {
     document.getElementById('Data').scrollIntoView({ behavior: 'smooth' });
 }
+
 
