@@ -26,7 +26,7 @@ html, body {
 
 /* Navbar */
 .navbar {
-    position: fixed;
+    position:relative;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -106,7 +106,7 @@ html, body {
 .genai-left-card, .genai-right-card {
   background: rgba(255,255,255,0.05);
   border-radius: 20px;
-  box-shadow: 0 6px 25px rgb(255, 0, 0);
+  box-shadow: 0 6px 25px rgb(45, 19, 131);
   padding: 35px;
   flex: 1;
   min-width: 300px;
@@ -116,7 +116,7 @@ html, body {
 
 .genai-left-card:hover, .genai-right-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgb(255, 0, 0);
+  box-shadow: 0 15px 35px #5a5858;
 }
 
 /* Left Card */
@@ -341,7 +341,8 @@ html, body {
   flex: 1;
   background: linear-gradient(135deg, #1f2020, #730ed8);
   border-radius: 40px;
-  box-shadow: 0 6px 14px rgb(255, 255, 255);
+  /* box-shadow: 0 6px 14px rgb(255, 255, 255); */
+  box-shadow: 0 10px 20px rgba(246, 248, 251, 0.4);
   padding: 25px;
   text-align: center;
   display: flex;
@@ -352,7 +353,7 @@ html, body {
 
 .big-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 20px rgba(231, 227, 227, 0.35);
 }
 
 .big-img {
@@ -585,7 +586,7 @@ html, body {
 
 .counselor-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgb(0, 255, 221);
+  box-shadow: 0 8px 18px rgb(231, 237, 237);
 }
 
 .counselor-image {
@@ -654,7 +655,7 @@ html, body {
 .mentor-card {
   background: #123228;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgb(255, 251, 0);
+  box-shadow: 0 4px 12px rgb(17, 81, 199);
   padding: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
@@ -663,7 +664,7 @@ html, body {
 
 .mentor-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgb(255, 0, 0);
+  box-shadow: 0 8px 18px rgb(159, 155, 155);
 }
 
 .mentor-image {
@@ -732,7 +733,7 @@ html, body {
   content: "";
   width: 80px;
   height: 4px;
-  background: #ff3b49;
+  background: #cac6c6;
   display: block;
   margin: 15px auto 0;
   border-radius: 2px;
@@ -771,14 +772,14 @@ html, body {
 
 .testimonial-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(255, 59, 73, 0.4);
+  box-shadow: 0 10px 25px rgba(90, 32, 198, 0.4);
 }
 
 .testimonial-image img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #ff3b49;
+  border: 3px solid #136ae3;
   object-fit: cover;
   margin-bottom: 15px;
 }
@@ -869,7 +870,7 @@ body {
   display: flex;
   background: linear-gradient(135deg, #2d4242, #291a37);
   border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.516);
+  box-shadow: 0 10px 20px rgba(239, 238, 238, 0.516);
   padding: 20px;
   gap: 20px;
   flex-wrap: wrap;
@@ -1564,7 +1565,7 @@ html {
   background-color: white;
   padding: 15px 30px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: fixed;
+  position: relative;
   top: 0;
   z-index: 1000;
 }
@@ -1820,7 +1821,7 @@ html {
     max-width: 460px;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.967);
     transition: transform 0.4s ease;
     background: #000;
 }
