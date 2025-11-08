@@ -123,7 +123,7 @@ html, body {
 .genai-left-card h1 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: var(--coral);
+  color: #4169E1;
 }
 
 .genai-left-card h2 {
@@ -150,8 +150,9 @@ html, body {
 }
 
 /* Button */
+/* 🔵 New Batch Button – Deep Blue Theme */
 .new-batch-btn {
-  background: linear-gradient(90deg,var(--coral),#ff7f7f);
+  background: linear-gradient(90deg, #0d6efd, #084298);
   color: #fff;
   border: none;
   padding: 12px 30px;
@@ -160,10 +161,11 @@ html, body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .new-batch-btn:hover {
-  background: linear-gradient(90deg,#ff6370,#ff3b49);
+  background: linear-gradient(90deg, #084298, #0d6efd);
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(255,59,73,0.7);
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
 }
 
 /* Form Fields */
@@ -172,6 +174,7 @@ html, body {
   flex-direction: column;
   gap: 15px;
 }
+
 .genai-right-card input,
 .genai-right-card select,
 .genai-right-card button {
@@ -184,19 +187,31 @@ html, body {
   color: #ffffff;
   width: 100%;
 }
+
 .genai-right-card input::placeholder {
   color: #ccc;
 }
+
+/* 🔵 Submit Button – Light Blue Gradient */
 .submit-btn {
-  background: linear-gradient(90deg,var(--coral),#ff7f7f);
-  cursor:pointer;
-  font-weight:600;
+  background: linear-gradient(90deg, #007bff, #5ba8ff);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
   transition: all 0.3s ease;
+  border-radius: 30px;
+  padding: 12px 30px;
+  border: none;
 }
+
 .submit-btn:hover {
-  background: linear-gradient(90deg,#ff6370,#ff3b49);
+  background: linear-gradient(90deg, #5ba8ff, #007bff);
+  color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
 }
+
+
 #status {
   margin-top: 10px;
   font-weight: 600;
@@ -653,7 +668,7 @@ html, body {
 }
 
 .mentor-card {
-  background: #123228;
+  background:  rgba(255,255,255,0.1);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgb(17, 81, 199);
   padding: 25px;
