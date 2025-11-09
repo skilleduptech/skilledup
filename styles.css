@@ -200,7 +200,7 @@ html, body {
   font-weight: 600;
   transition: all 0.3s ease;
   border-radius: 30px;
-  padding: 12px 30px;
+  padding: 5px 5px;
   border: none;
 }
 
@@ -592,7 +592,7 @@ html, body {
 }
 
 .counselor-card {
-  background: #bfbfbf;
+  background: #76670f;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgb(0, 26, 255);
   padding: 20px;
@@ -731,7 +731,7 @@ html, body {
 .testimonials-section {
   background: linear-gradient(135deg, #0a0a2e, #022149);
   color: #fff;
-  padding: 80px 20px;
+  padding: 20px 10px;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
   /* margin: 0px; */
@@ -1713,287 +1713,198 @@ html {
 /* =================================================
    ONLY AFFECTS .industry-certification — NO CONFLICTS
 ================================================= */
-.industry-certification .container {
-    max-width: 1200px;
-    padding: 0 20px; /* Reduced padding for better mobile fit; was 50px */
-    margin: 0 auto 20px; /* Added auto margins for centering */
-    box-sizing: border-box;
-}
-
-/* Title */
-.industry-certification .section-title {
-    text-align: center;
-    font-size: 2.1rem;
-    font-weight: 700;
-    margin: 0 0 8px;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.industry-certification .top-description h3 {
-    text-align: center;
-    font-size: 1.38rem;
-    font-weight: 500;
-    margin: 0 0 40px;
-    color: #ffdd57;
-    line-height: 1.2;
-}
-
-/* 2-Column Grid */
-.industry-certification .big-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    /* FIX FOR DESKTOP VERTICAL CENTERING */
-    align-items: stretch; 
-}
-
-/* LEFT SIDE */
-.industry-certification .left-side {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    height: 100%;
-}
-
-.industry-certification .inner-card {
-    padding: 28px;
-    border-radius: 24px;
-    background: linear-gradient(145deg, #1a1a24, #14141a);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-    color: #e0e0e0;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    position: relative;
-    overflow: hidden;
-}
-
-.industry-certification .inner-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 60%);
-    pointer-events: none;
-}
-
-.industry-certification .inner-card h3 {
-    margin: 0 0 18px;
-    font-size: 1.4rem;
-    color: #ffffff;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
-
-.industry-certification .about-card p {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 0;
-    color: #d0d0d0;
-}
-
-/* HIGHLIGHTS – Numbered Pills */
-.industry-certification .highlights-pills {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-.industry-certification .pill {
-    display: flex;
-    align-items: center;
-    background: #2c2c38;
-    color: #e8e8e8;
-    padding: 15px 20px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.industry-certification .pill:hover {
-    background: #3d3d4d;
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    border-color: rgba(77, 166, 255, 0.4);
-}
-
-/* RIGHT SIDE – Certificate */
-.industry-certification .right-side {
-    display: flex;
-    justify-content: center; /* Centers horizontally (X-axis) */
-    align-items: center;     /* Centers vertically (Y-axis) */
-    height: 100%;
-}
-
-.industry-certification .certificate-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 460px;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.967);
-    transition: transform 0.4s ease;
-    background: #000;
-}
-
-.industry-certification .certificate-wrapper:hover {
-    transform: translateY(-8px) scale(1.02);
-}
-
-.industry-certification .certificate-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 24px;
-}
-
-/* Golden Badge */
-.industry-certification .cert-badge {
-    position: absolute;
-    top: 18px;
-    right: -12px;
-    background: linear-gradient(135deg, #ffd700, #ffb800);
-    color: #1a1a1a;
-    padding: 12px 26px;
-    border-radius: 10px;
-    font-weight: 700;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    transform: rotate(8deg);
-    text-align: center;
-    line-height: 1.3;
-    font-size: 1rem;
-    z-index: 10;
-    white-space: nowrap;
-}
-
-.industry-certification .cert-badge::before {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 14px solid transparent;
-    border-right: 14px solid transparent;
-    border-top: 12px solid #cc9900;
-}
-
-.industry-certification .badge-title {
-    font-size: 1.2em;
-    letter-spacing: 0.6px;
-    display: block;
-}
-.industry-certification .badge-subtitle {
-    font-size: 0.8em;
-    opacity: 0.95;
-    font-weight: 500;
-}
-
-/* RESPONSIVE – Tablet (Switches to single column) */
-@media (max-width: 992px) {
-    .industry-certification .container {
-        padding: 0 15px;
-    }
-    
-    .industry-certification .big-card {
-        grid-template-columns: 1fr; /* FIX: Stack columns */
-        gap: 28px;
-        align-items: center;    /* FIX: Center the stacked columns */
-    }
-    
-    .industry-certification .left-side {
-        order: -1; 
-        gap: 20px;
-    }
-    
-    .industry-certification .highlights-pills {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-    
-    .industry-certification .certificate-wrapper {
-        max-width: 80%; /* Limit size slightly to look better centered */
-        margin: 0 auto; /* Ensure horizontal centering within the column */
-    }
-    
-    .industry-certification .cert-badge {
-        right: -8px;
-        transform: rotate(5deg);
-    }
-}
-
-/* RESPONSIVE – Mobile Phone */
-@media (max-width: 576px) {
-    .industry-certification .container {
-        padding: 0 10px;
-        margin-bottom: 10px;
-    }
-    
-    .industry-certification .section-title { 
-        font-size: 1.8rem; 
-    }
-    
-    .industry-certification .top-description h3 { 
-        font-size: 1.2rem; 
-        margin-bottom: 30px; 
-        padding: 0 10px;
-    }
-    
-    .industry-certification .inner-card { 
-        padding: 20px; 
-    }
-    
-    .industry-certification .inner-card h3 { 
-        font-size: 1.3rem; 
-        margin-bottom: 16px;
-    }
-    
-    .industry-certification .about-card p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-    
-    .industry-certification .pill { 
-        font-size: 0.92rem; 
-        padding: 14px 18px; 
-        justify-content: center;
-    }
-    
-    .industry-certification .certificate-wrapper {
-        max-width: 100%; /* Use full width on small screens */
-        border-radius: 16px;
-    }
-    
-    .industry-certification .certificate-img {
-        border-radius: 16px;
-        /* Removed old margin-bottom: 100px; */
-    }
-    
-    .industry-certification .badge-title {
-        font-size: 1.1em;
-    }
-    
-    .industry-certification .badge-subtitle {
-        font-size: 0.75em;
-    }
-    
-    /* Ensure badge doesn't clip on very small screens */
-    @media (max-width: 360px) {
-        .industry-certification .cert-badge {
-            position: static;
-            display: block;
-            margin: 10px auto 0;
-            transform: none;
-            text-align: center;
-            width: fit-content;
+        /* -------------------------------------------------
+           GLOBAL FONT (professional & clean)
+        ------------------------------------------------- */
+        .industry-certification {
+            font-family: "Inter", "Roboto", system-ui, -apple-system, sans-serif;
         }
-    }
-}
 
+        /* -------------------------------------------------
+           CONTAINER
+        ------------------------------------------------- */
+        .industry-certification .container {
+            max-width: 1200px;
+            padding: 0 20px;
+            margin: 0 auto 20px;
+            box-sizing: border-box;
+        }
 
+        /* -------------------------------------------------
+           TITLE & DESCRIPTION
+        ------------------------------------------------- */
+        .industry-certification .section-title {
+            text-align: center;
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin: 0 0 8px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .industry-certification .top-description h3 {
+            text-align: center;
+            font-size: 1.38rem;
+            font-weight: 500;
+            margin: 0 0 40px;
+            color: #ffdd57;
+            line-height: 1.2;
+        }
+
+        /* -------------------------------------------------
+           GRID LAYOUT
+        ------------------------------------------------- */
+        .industry-certification .big-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        /* -------------------------------------------------
+           LEFT SIDE (About + Highlights)
+        ------------------------------------------------- */
+        .industry-certification .left-side {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            height: 100%;
+        }
+
+        .industry-certification .inner-card {
+            padding: 28px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, #1a1a24, #14141a);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            color: #e0e0e0;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-certification .inner-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 60%);
+            pointer-events: none;
+        }
+
+        .industry-certification .inner-card h3 {
+            margin: 0 0 18px;
+            font-size: 1.4rem;
+            color: #ffffff;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .industry-certification .about-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+            color: #d0d0d0;
+        }
+
+        /* -------------------------------------------------
+           HIGHLIGHTS – Pills with GREEN TICK
+        ------------------------------------------------- */
+        .industry-certification .highlights-pills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .industry-certification .pill {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: #2c2c38;
+            color: #e8e8e8;
+            padding: 15px 20px 15px 48px;   /* extra left padding for tick */
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Green tick (SVG data‑URL) */
+        .industry-certification .pill::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2328a745'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+
+        .industry-certification .pill:hover {
+            background: #3d3d4d;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-color: rgba(77,166,255,0.4);
+        }
+
+        /* -------------------------------------------------
+           RIGHT SIDE – Certificate Image
+        ------------------------------------------------- */
+        .industry-certification .right-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .industry-certification .certificate-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0,0,0,.967);
+            transition: transform .4s ease;
+            background: #000;
+        }
+
+        .industry-certification .certificate-wrapper:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .industry-certification .certificate-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 24px;
+        }
+
+        /* -------------------------------------------------
+           RESPONSIVE – Tablet
+        ------------------------------------------------- */
+        @media (max-width: 992px) {
+            .industry-certification .container { padding: 0 15px; }
+            .industry-certification .big-card { grid-template-columns: 1fr; gap: 28px; align-items: center; }
+            .industry-certification .left-side { order: -1; gap: 20px; }
+            .industry-certification .highlights-pills { grid-template-columns: 1fr; gap: 12px; }
+            .industry-certification .certificate-wrapper { max-width: 80%; margin: 0 auto; }
+        }
+
+        /* -------------------------------------------------
+           RESPONSIVE – Mobile
+        ------------------------------------------------- */
+        @media (max-width: 576px) {
+            .industry-certification .container { padding: 0 10px; margin-bottom: 10px; }
+            .industry-certification .section-title { font-size: 1.8rem; }
+            .industry-certification .top-description h3 { font-size: 1.2rem; margin-bottom: 30px; padding: 0 10px; }
+            .industry-certification .inner-card { padding: 20px; }
+            .industry-certification .inner-card h3 { font-size: 1.3rem; margin-bottom: 16px; }
+            .industry-certification .about-card p { font-size: .95rem; line-height: 1.6; }
+            .industry-certification .pill { font-size: .92rem; padding: 14px 18px 14px 46px; justify-content: flex-start; }
+            .industry-certification .certificate-wrapper { max-width: 100%; border-radius: 16px; }
+            .industry-certification .certificate-img { border-radius: 16px; }
+        }
