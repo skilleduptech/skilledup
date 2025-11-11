@@ -23,26 +23,24 @@ html, body {
     --orange: #FFB020;
     --coral: #FF4D6D;
 }
-
+/* ------------------------------------------------ */
+/* Navbar */
 /* Navbar */
 .navbar {
-    position:relative;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     backdrop-filter: blur(8px);
-    background: white;
-    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 20px 20px;
 }
 
 .navbar-content {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -50,14 +48,23 @@ html, body {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: white; /* Changed to white for better contrast */
     cursor: pointer;
     transition: transform 0.3s ease;
+    background: white; /* Background color for logo */
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(158, 67, 238, 0.3);
 }
 
 .logo:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(253, 253, 254, 0.4);
 }
+
+/* Add this if you don't have the CSS variable defined */
+
+/* ---------------------------------------------- */
 
 /* Section Styling */
 .section {
@@ -412,7 +419,7 @@ html, body {
 .bottom-link {
   text-align: center;
   margin-top: 25px;
-  margin-bottom: 0;
+  margin-bottom: 12px;
 }
 
 .link-btn {
@@ -764,7 +771,7 @@ html, body {
 .testimonials-track {
   display: flex;
   gap: 2rem;
-  animation: scrollLoop 30s linear infinite;
+  animation: scrollLoop 10s linear infinite;
 }
 
 @keyframes scrollLoop {
@@ -859,7 +866,7 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .top-description {
@@ -944,7 +951,7 @@ body {
 .right-side {
   flex: 1;
   min-width: 280px;
-  display: flex;
+  display: initial;
   justify-content: center;
   align-items: center;
 }
@@ -996,7 +1003,7 @@ body {
 .portfolio-section {
     background: linear-gradient(135deg, #1a0202, #022149);
     color: white;
-    padding: 50px 20px;
+    padding: 13px 20px;
 }
 
 .portfolio-section .section-title {
@@ -1235,7 +1242,7 @@ html {
 /* Optional styling for bottom link button */
 .bottom-link {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 12px;
 }
 
 .link-btn {
@@ -1756,9 +1763,14 @@ html {
         ------------------------------------------------- */
         .industry-certification .big-card {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 2fr;
             gap: 32px;
             align-items: stretch;
+        }
+
+        .certificate-wrapper {
+          margin-left: auto;
+          margin-right: auto;
         }
 
         /* -------------------------------------------------
@@ -1766,18 +1778,20 @@ html {
         ------------------------------------------------- */
         .industry-certification .left-side {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             gap: 24px;
             height: 100%;
+            justify-content: flex-end;
+            align-items: center;
         }
 
         .industry-certification .inner-card {
             padding: 28px;
             border-radius: 24px;
             background: linear-gradient(145deg, #1a1a24, #14141a);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            box-shadow: 0 12px 32px rgba(0,0,0,1.5);
             color: #e0e0e0;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 11px solid rgba(255,255,255,0.08);
             position: relative;
             overflow: hidden;
         }
@@ -1811,7 +1825,7 @@ html {
         ------------------------------------------------- */
         .industry-certification .highlights-pills {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: -1fr 1fr;
             gap: 16px;
         }
 
@@ -1822,7 +1836,7 @@ html {
             background: #2c2c38;
             color: #e8e8e8;
             padding: 15px 20px 15px 48px;   /* extra left padding for tick */
-            border-radius: 50px;
+            /* border-radius: 50px; */
             font-size: 0.95rem;
             font-weight: 500;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -1839,8 +1853,17 @@ html {
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2328a745'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat;
+            /* background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2328a745'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat; */
         }
+/* ------------------------------------ */
+        .highlights-pills {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .highlights-pills {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax as needed */
+        grid-auto-flow: row dense;
+      }
 
         .industry-certification .pill:hover {
             background: #3d3d4d;
@@ -1849,6 +1872,17 @@ html {
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             border-color: rgba(77,166,255,0.4);
         }
+
+        .highlights-pills {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between; /* or space-around, etc. */
+        }
+
+        /* .highlights-pills .pill {
+          flex: 0 0 calc(50% - /* some gap */); Adjust gap as needed
+        /* Or just width: calc(50% - some-gap)
+       } */
 
         /* -------------------------------------------------
            RIGHT SIDE – Certificate Image
@@ -1863,7 +1897,7 @@ html {
         .industry-certification .certificate-wrapper {
             position: relative;
             width: 100%;
-            max-width: 460px;
+            max-width: 540px;
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 16px 40px rgba(0,0,0,.967);
